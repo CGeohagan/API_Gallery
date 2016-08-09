@@ -3,7 +3,7 @@ Search Filter
 ***********************************************************************/
 
 //When the AJAX function is complete, this code will run
-$( document ).ajaxComplete(function() {
+$( document ).ajaxStop(function() {
 
 	//Make the search box at the top of the page filter based on captions
 	//Select the input for the search bar

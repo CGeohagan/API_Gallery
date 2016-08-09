@@ -1,3 +1,4 @@
+
 //Wait until page is finished loading to run
 $(document).ready(function() {
 
@@ -64,4 +65,7 @@ AJAX for Spotify
   });
 
 }); // end ready
+
+
+
 

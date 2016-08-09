@@ -68,11 +68,13 @@ input[type="search"] {
 #overlay {
   background: rgba(0,0,0,0.8);
   width: 100%;
-  height: 200%;
-  position: absolute;
+  height: 100%;
+  position: fixed;
+  overflow: auto;
   z-index: 1;
   top: 0;
   left: 0;
+  bottom: 0;
   display: none;
   text-align: center;
 }
@@ -108,7 +110,7 @@ input[type="search"] {
 
 #overlay p {
   color: black;
-  padding: 0;
+  padding: .5em;
   font-size: 1em;
   font-weight: 100;
   line-height: 26px;

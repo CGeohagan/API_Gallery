@@ -1,9 +1,11 @@
+
+
 /***********************************************************************
 Lightbox Gallery
 ***********************************************************************/
 
 //When the AJAX function is complete, this code will run
-$( document ).ajaxComplete(function() {
+$( document ).ajaxStop(function() {
 
   var $overlay = $('<div id="overlay"></div>');
   var $image = $("<img>");
@@ -37,8 +39,10 @@ $( document ).ajaxComplete(function() {
   $("body").append($overlay);
 
   //Add class first and last to beginning and ending list items
-  $('li').first().children('a').addClass('first');
-  $('li').last().children('a').addClass('last');
+  $('.spotify li').first().children('a').addClass('first');
+  $('.spotify li').last().children('a').addClass('last');
+  $('.imdb li').first().children('a').addClass('first');
+  $('.imdb li').last().children('a').addClass('last');
 
   //Create function to show get information for and show image or video when traversing through images
   var showMedia = function(){
@@ -76,20 +80,33 @@ $( document ).ajaxComplete(function() {
     $(".photo-thumbnails a").click(function(event) {
       event.preventDefault();
       $selectedImage = $(this);
+      lastImage();
+      firstImage();
       showMedia();
     });
-     
+  
+  var firstImage = function() {
+    if ($selectedImage.hasClass('first')) {
+      $leftArrow.hide();
+    } else {
+      $leftArrow.css("display", "inline-block");
+    }
+  }; 
+
+  var lastImage = function() {
+    if ($selectedImage.hasClass('last')) {
+      $rightArrow.hide();
+    } else {
+      $rightArrow.css("display", "inline-block");
+    }
+  }; 
 
    //Function for when right arrow is clicked
   var nextImage = function(){
       //Traverse to next image in gallery
       $selectedImage = $selectedImage.parent('li').next('li').children('a');
       $leftArrow.css("display", "inline-block");
-      if ($selectedImage.hasClass('last')) {
-        $rightArrow.hide();
-      } else {
-        $rightArrow.css("display", "inline-block");
-      }
+      lastImage();
       showMedia();
   };
 
@@ -98,11 +115,7 @@ $( document ).ajaxComplete(function() {
       //Traverse to previous image in gallery
       $selectedImage = $selectedImage.parent('li').prev('li').children('a');
       $rightArrow.css("display", "inline-block");
-      if ($selectedImage.hasClass('first')) {
-        $leftArrow.hide();
-      } else {
-        $leftArrow.css("display", "inline-block");
-      }
+      firstImage();
       showMedia();
   };
 

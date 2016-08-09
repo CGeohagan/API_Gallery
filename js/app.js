@@ -49,7 +49,7 @@ AJAX for Spotify
             movieHTML += '<li class="">';
             movieHTML += '<a href="' + movie.Poster + '" class="photo">';
             movieHTML += '<img src="' + movie.Poster + '" ';
-            movieHTML += 'alt="' + movie.Title + '" ';
+            movieHTML += 'alt="' + movie.Title + " (" + movie.Year + ")" + '" ';
             movieHTML += 'title="' + movie.Plot + '"></a></li>';
       //  }); // end each
       //  photoHTML += '</ul>';

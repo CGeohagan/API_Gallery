@@ -42,7 +42,7 @@ AJAX for Spotify
 
   $.each(harryPotter, function(i,title) {
 
-    var imdbAPI = "http://www.omdbapi.com/?t=" + title + "&plot=short&r=json";
+    var imdbAPI = "https://www.omdbapi.com/?t=" + title + "&plot=short&r=json";
     function displayMovies(movie) {
     //  var photoHTML = '<ul class="photo-thumbnails">';
     //  $.each(data.items,function(i,item) {
